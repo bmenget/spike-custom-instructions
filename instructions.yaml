@@ -1,0 +1,36 @@
+version: 1
+kind: riscv_custom_instructions
+
+# User-facing instruction manifest. Each entry defines a single custom
+# instruction. The `format` field selects the bit-layout and drives which
+# fields are required; see `format_registry.json` for the format-specific
+# rules and defaults. Do not include derived fields (operand flags) — the
+# generator infers them from `format`.
+
+metadata:
+  owner: custom-instruction-automation
+  target_backends:
+    - riscv-gnu-toolchain
+    - gem5
+  notes:
+    - "Use the CLI helper to create format-aware entries, or edit this file manually following the examples above."
+    - "The instruction name is used as the behavior-file stem in the registry and backend generation."
+    - "'opcode' is managed by the allocator and must NOT be set in this file."
+    - "'funct3' and 'funct7' are assigned automatically by the generator (second-layer allocation). Advanced users may provide an 'encoding_override' mapping to suggest explicit 'funct3'/'funct7', but the allocator will validate and reject collisions."
+
+examples:
+  - name: custom_add
+    format: R
+    description: Example R-type custom instruction (funct3/funct7 auto-assigned)
+  - name: my_imm_op
+    format: I
+    description: Example I-type instruction with immediate
+
+# Add your instructions below as a list. Each instruction must include
+# at least `name` and `format`. The CLI/generator will validate inputs and
+# assign encoding fields (opcode/funct3/funct7) as needed.
+
+instructions:
+  # - name: custom_add
+  #   format: R
+  #   description: Example R-type custom instruction (funct3/funct7 auto-assigned)

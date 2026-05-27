@@ -1,0 +1,36 @@
+# Virtual envs
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Virtualenvs
+env/
+venv/
+.venv/
+
+# Editor / OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Logs / caches
+*.log
+.cache/
+.pytest_cache/
+
+# Local config
+local_anchors.json
+
+# Binaries / large
+*.o
+*.elf
+*.bin
+*.img

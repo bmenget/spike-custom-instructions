@@ -1,0 +1,44 @@
+{
+  "entries": [
+    {
+      "name": "example_custom_r0",
+      "format": "R",
+      "opcode": "0x0b",
+      "behavior_file": "behavior_files/example_custom_r0.h",
+      "encoding": {
+        "funct3": 0,
+        "funct7": 0
+      },
+      "status": "allocated",
+      "source": "instructions.yaml#example_custom_r0",
+      "allocated_at": "2026-05-26T22:09:40.438348Z"
+    },
+    {
+      "name": "example_custom_r1",
+      "format": "R",
+      "opcode": "0x0b",
+      "behavior_file": "behavior_files/example_custom_r1.h",
+      "encoding": {
+        "funct3": 0,
+        "funct7": 1
+      },
+      "status": "tombstoned",
+      "source": "instructions.yaml#example_custom_r1",
+      "allocated_at": "2026-05-26T22:13:19.146784Z"
+    }
+  ],
+  "generated_by": "riscv-custom-instruction-allocator",
+  "note": "Machine-managed registry of allocated custom instruction encodings. Do not edit manually except via CLI operations.",
+  "schema": {
+    "entry": {
+      "allocated_at": "ISO-8601 timestamp",
+      "encoding": "object containing assigned fields (funct3, funct7, imm as applicable)",
+      "format": "R|I|S|B|U|J",
+      "name": "string (instruction name, unique)",
+      "opcode": "assigned opcode (hex string, e.g. 0x0b)",
+      "source": "path to originating manifest (instructions.yaml) and entry name",
+      "status": "allocated | applied | removed | tombstoned"
+    }
+  },
+  "version": 1
+}

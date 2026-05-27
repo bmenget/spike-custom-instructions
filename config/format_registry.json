@@ -1,0 +1,92 @@
+{
+  "version": 1,
+  "note": "Tool-owned registry. Do not edit manually unless you are a maintainer. Use format_registry.local.json to override per-workspace.",
+  "default_opcode_per_format": {
+    "R": "0x0b",
+    "I": "0x2b",
+    "S": "0x5b",
+    "B": "0x5b",
+    "U": "0x7b",
+    "J": "0x7b"
+  },
+  "formats": {
+    "R": {
+      "description": "R-type (rd, rs1, rs2, funct3, funct7) - register-register ops",
+      "required": ["name", "format", "behavior_file"],
+      "defaults": {
+        "opcode": "0x0b"
+      },
+      "fields": {
+        "opcode": {"bits": 7, "note": "Major opcode (prefer custom-0/1/2/3)"},
+        "funct3": {"bits": 3},
+        "funct7": {"bits": 7}
+      }
+    },
+    "I": {
+      "description": "I-type (rd, rs1, imm, funct3) - register-immediate ops",
+      "required": ["name", "format", "behavior_file"],
+      "defaults": {
+        "opcode": "0x2b"
+      },
+      "fields": {
+        "opcode": {"bits": 7},
+        "funct3": {"bits": 3},
+        "imm": {"bits": 12}
+      }
+    },
+    "S": {
+      "description": "S-type (rs1, rs2, imm, funct3) - store-like ops",
+      "required": ["name", "format", "behavior_file"],
+      "defaults": {
+        "opcode": "0x5b"
+      },
+      "fields": {
+        "opcode": {"bits": 7},
+        "funct3": {"bits": 3},
+        "imm": {"bits": 12}
+      }
+    },
+    "B": {
+      "description": "B-type (branch) - conditional branches",
+      "required": ["name", "format", "behavior_file"],
+      "defaults": {
+        "opcode": "0x5b"
+      },
+      "fields": {
+        "opcode": {"bits": 7},
+        "funct3": {"bits": 3},
+        "imm": {"bits": 13}
+      }
+    },
+    "U": {
+      "description": "U-type (rd, imm20) - large immediates (lui/auipc)",
+      "required": ["name", "format", "behavior_file"],
+      "defaults": {
+        "opcode": "0x7b"
+      },
+      "fields": {
+        "opcode": {"bits": 7},
+        "imm": {"bits": 20}
+      }
+    },
+    "J": {
+      "description": "J-type (rd, jump_imm) - jump and link",
+      "required": ["name", "format", "behavior_file"],
+      "defaults": {
+        "opcode": "0x7b"
+      },
+      "fields": {
+        "opcode": {"bits": 7},
+        "imm": {"bits": 21}
+      }
+    }
+  },
+  "validation": {
+    "opcode": {
+      "allowed_custom_slots": ["0x0b", "0x2b", "0x5b", "0x7b"],
+      "note": "Tool-assigned only: opcode is owned by the allocator; users must not set it in `instructions.yaml`."
+    },
+    "funct3": {"min": 0, "max": 7},
+    "funct7": {"min": 0, "max": 127}
+  }
+}
