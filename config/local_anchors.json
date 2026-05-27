@@ -1,0 +1,68 @@
+{
+  "entries": [
+    {
+      "file_name": "rv_xcustom",
+      "path": "riscv-opcodes/extensions/rv_xcustom",
+      "anchor": {
+        "match": "# DO NOT EDIT - managed by add_custom_instructions.py",
+        "placement": "after"
+      }
+    },
+    {
+      "file_name": "encoding.h",
+      "path": "riscv-gnu-toolchain/spike/riscv/encoding.h",
+      "anchor": {
+        "match": "#define RISCV_ENCODING_H",
+        "placement": "after"
+      }
+    },
+    {
+      "file_name": "encoding.h",
+      "path": "riscv-gnu-toolchain/spike/riscv/encoding.h",
+      "anchor": {
+        "match": "#ifdef DECLARE_INSN",
+        "placement": "after"
+      }
+    },
+    {
+      "file_name": "riscv-opc.c",
+      "path": "riscv-gnu-toolchain/binutils/opcodes/riscv-opc.c",
+      "anchor": {
+          "match": "const struct riscv_opcode riscv_opcodes[] =\n{",
+        "placement": "after"
+      }
+    },
+    {
+      "file_name": "riscv-opc.h",
+      "path": "riscv-gnu-toolchain/binutils/include/opcode/riscv-opc.h",
+      "anchor": {
+        "match": "#define RISCV_ENCODING_H",
+        "placement": "after"
+      }
+    },
+    {
+      "file_name": "riscv-opc.h",
+      "path": "riscv-gnu-toolchain/binutils/include/opcode/riscv-opc.h",
+      "anchor": {
+        "match": "#ifdef DECLARE_INSN",
+        "placement": "after"
+      }
+    },
+    {
+      "file_name": "riscv.mk.in",
+      "path": "riscv-gnu-toolchain/spike/riscv/riscv.mk.in",
+      "anchor": {
+        "match": "riscv_insn_list = ",
+        "placement": "before"
+      }
+    },
+      {
+      "file_name": "riscv.mk.in",
+      "path": "riscv-gnu-toolchain/spike/riscv/riscv.mk.in",
+      "anchor": {
+        "match": "riscv_insn_list = ",
+        "placement": "after"
+      }
+    }
+  ]
+}

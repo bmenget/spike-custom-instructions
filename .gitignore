@@ -26,8 +26,6 @@ venv/
 .cache/
 .pytest_cache/
 
-# Local config
-local_anchors.json
 
 # Binaries / large
 *.o
